@@ -127,7 +127,7 @@ body::after {
 
 .logo-text {
   font-family: var(--pixel-font);
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--neon-green);
   text-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green), 0 0 15px var(--neon-green);
   animation: textGlow 2s ease-in-out infinite alternate;
