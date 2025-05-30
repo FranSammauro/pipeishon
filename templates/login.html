@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Iniciar Sesión - Pipeishon{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-container">
+        <div class="auth-form">
+            <h2 class="auth-title">INICIAR SESIÓN</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="USUARIO" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="CONTRASEÑA" required>
+                </div>
+                <button type="submit" class="auth-btn">ENTRAR</button>
+            </form>
+            <p class="auth-link">¿No tienes cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

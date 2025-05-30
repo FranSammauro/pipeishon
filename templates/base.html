@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Pipeishon - Videojuegos Retro{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P:wght@400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="/placeholder.svg?height=50&width=50" alt="Pipeishon Logo" class="logo-img">
+                <span class="logo-text">PIPEISHON</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#inicio" class="nav-link">INICIO</a>
+                <a href="#quienes-somos" class="nav-link">QUIÉNES SOMOS</a>
+                <a href="#historia" class="nav-link">HISTORIA</a>
+                <a href="#productos" class="nav-link">PRODUCTOS</a>
+                <a href="#contacto" class="nav-link">CONTACTO</a>
+                {% if session.username %}
+                    <span class="nav-user">¡Hola, {{ session.username }}!</span>
+                    <a href="{{ url_for('logout') }}" class="nav-btn logout-btn">LOGOUT</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="nav-btn login-btn">SIGN IN</a>
+                    <a href="{{ url_for('register') }}" class="nav-btn register-btn">SIGN UP</a>
+                {% endif %}
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-message flash-{{ category }}">
+                            {{ message }}
+                            <button class="flash-close">&times;</button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PIPEISHON</h3>
+                <p>Creando experiencias retro para el futuro</p>
+            </div>
+            <div class="footer-section">
+                <h4>PRODUCTOS</h4>
+                <ul>
+                    <li><a href="{{ url_for('product', product_name='pipeishon-one') }}">Pipeishon One</a></li>
+                    <li><a href="{{ url_for('product', product_name='pipeishon-sound') }}">Pipeishon Sound</a></li>
+                    <li><a href="{{ url_for('product', product_name='pipeishon-rc') }}">Pipeishon RC</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>CONTACTO</h4>
+                <p>pipeishonone@gmail.com</p>
+                <p>+54 11 25068477</p>
+                <p>@pipeishonone.official</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Pipeishon. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+

@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="inicio" class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">BIENVENIDO AL FUTURO RETRO</h1>
+        <p class="hero-subtitle">Desarrollamos videojuegos y tecnología con el alma de los clásicos</p>
+        <button class="cta-button">EXPLORAR PRODUCTOS</button>
+    </div>
+    <div class="hero-animation">
+        <div class="pixel-art"></div>
+    </div>
+</section>
+
+<section class="tetris-section">
+    <div class="tetris-container">
+        <h2 class="tetris-title">¡JUEGA TETRIS RETRO!</h2>
+        <div class="tetris-game">
+            <div class="game-area">
+                <canvas id="tetris-canvas" class="game-board" width="300" height="600"></canvas>
+                <div class="game-info">
+                    <div class="score-board">
+                        <h3>PUNTUACIÓN</h3>
+                        <div class="score">Score: <span id="score">0</span></div>
+                        <div class="level">Level: <span id="level">1</span></div>
+                        <div class="lines">Lines: <span id="lines">0</span></div>
+                    </div>
+                    <div class="next-piece">
+                        <h3>SIGUIENTE</h3>
+                        <canvas id="next-canvas" width="120" height="120"></canvas>
+                    </div>
+                    <div class="game-controls">
+                        <h3>CONTROLES</h3>
+                        <button id="start-btn" class="game-button">START</button>
+                        <button id="pause-btn" class="game-button">PAUSE</button>
+                        <button id="reset-btn" class="game-button">RESET</button>
+                        <div class="controls-info">
+                            <p>← → : Mover</p>
+                            <p>↓ : Bajar rápido</p>
+                            <p>↑ : Rotar</p>
+                            <p>SPACE : Drop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="quienes-somos" class="about-section">
+    <div class="container">
+        <h2 class="section-title">QUIÉNES SOMOS</h2>
+        <p class="section-description">Somos un equipo apasionado de desarrolladores y diseñadores que creemos en el poder de la nostalgia y la innovación.</p>
+        
+        <div class="team-carousel">
+            <div class="carousel-container" id="team-carousel">
+                <div class="team-card">
+                    <img src="/placeholder.svg?height=150&width=150" alt="Team Member" class="team-img">
+                    <h3>Alex Rodriguez</h3>
+                    <p>CEO & Fundador</p>
+                    <p>Visionario del gaming retro</p>
+                </div>
+                <div class="team-card">
+                    <img src="/placeholder.svg?height=150&width=150" alt="Team Member" class="team-img">
+                    <h3>Maria González</h3>
+                    <p>CTO</p>
+                    <p>Experta en hardware Arduino</p>
+                </div>
+                <div class="team-card">
+                    <img src="/placeholder.svg?height=150&width=150" alt="Team Member" class="team-img">
+                    <h3>Carlos Mendez</h3>
+                    <p>Lead Developer</p>
+                    <p>Maestro del código retro</p>
+                </div>
+                <div class="team-card">
+                    <img src="/placeholder.svg?height=150&width=150" alt="Team Member" class="team-img">
+                    <h3>Ana Silva</h3>
+                    <p>Designer</p>
+                    <p>Artista del pixel art</p>
+                </div>
+                <div class="team-card">
+                    <img src="/placeholder.svg?height=150&width=150" alt="Team Member" class="team-img">
+                    <h3>Diego Torres</h3>
+                    <p>Hardware Engineer</p>
+                    <p>Especialista en electrónica</p>
+                </div>
+            </div>
+            <button class="carousel-btn prev-btn" id="prev-btn">‹</button>
+            <button class="carousel-btn next-btn" id="next-btn">›</button>
+        </div>
+    </div>
+</section>
+
+<section id="historia" class="history-section">
+    <div class="container">
+        <div class="history-content">
+            <div class="history-text">
+                <h2 class="section-title">NUESTRA HISTORIA</h2>
+                <p>Pipeishon nació en 2020 cuando un grupo de amigos apasionados por los videojuegos retro decidió crear algo especial. Lo que comenzó como un proyecto universitario se convirtió en una empresa dedicada a revivir la magia de los juegos clásicos.</p>
+                <p>Desde nuestros humildes comienzos en un garaje hasta convertirnos en una empresa reconocida, hemos mantenido nuestra pasión por la innovación y la nostalgia. Cada producto que creamos lleva el ADN de los grandes clásicos del gaming.</p>
+                <p>Hoy, con más de 10 miembros en nuestro equipo, seguimos creciendo y desarrollando productos que conectan generaciones a través del amor por los videojuegos.</p>
+            </div>
+            <div class="history-image">
+                <img src="/placeholder.svg?height=400&width=500" alt="Fundadores de Pipeishon" class="founders-img">
+                <p class="image-caption">Los fundadores en nuestro primer taller</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="productos" class="products-section">
+    <div class="container">
+        <h2 class="section-title">NUESTROS PRODUCTOS</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="/placeholder.svg?height=250&width=300" alt="Pipeishon One" class="product-img">
+                <h3>PIPEISHON ONE</h3>
+                <p>Consola retro con Arduino que imita el estilo clásico de Nintendo. Revive la nostalgia de los videojuegos de 8-bits.</p>
+                <a href="{{ url_for('product', product_name='pipeishon-one') }}" class="product-btn">VER PRODUCTO</a>
+            </div>
+            <div class="product-card">
+                <img src="/placeholder.svg?height=250&width=300" alt="Pipeishon Sound" class="product-img">
+                <h3>PIPEISHON SOUND</h3>
+                <p>Amplificador de sonido premium que se conecta vía cable Jack a tu PC o celular para una experiencia auditiva superior.</p>
+                <a href="{{ url_for('product', product_name='pipeishon-sound') }}" class="product-btn">VER PRODUCTO</a>
+            </div>
+            <div class="product-card">
+                <img src="/placeholder.svg?height=250&width=300" alt="Pipeishon RC" class="product-img">
+                <h3>PIPEISHON RC</h3>
+                <p>Auto a control remoto con plaqueta personalizada y servomotores de precisión. Diversión garantizada para todas las edades.</p>
+                <a href="{{ url_for('product', product_name='pipeishon-rc') }}" class="product-btn">VER PRODUCTO</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacto" class="contact-section">
+    <div class="container">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2 class="section-title">CONTACTO</h2>
+                <div class="contact-item">
+                    <h4>EMAIL</h4>
+                    <p>pipeishonone@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>TELÉFONO</h4>
+                    <p>+54 11 25068477</p>
+                </div>
+                <div class="contact-item">
+                    <h4>INSTAGRAM</h4>
+                    <p>@pipeishonone.official</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>ENVÍANOS UN MENSAJE</h3>
+                <form method="POST" action="{{ url_for('contact') }}">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="NOMBRE" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="EMAIL" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="MENSAJE" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">ENVIAR MENSAJE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

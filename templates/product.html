@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - Pipeishon{% endblock %}
+
+{% block content %}
+<section class="product-detail-section">
+    <div class="container">
+        <div class="product-detail">
+            <div class="product-image">
+                <img src="/placeholder.svg?height=400&width=500" alt="{{ product.name }}" class="detail-img">
+            </div>
+            <div class="product-info">
+                <h1 class="product-title">{{ product.name }}</h1>
+                <p class="product-description">{{ product.description }}</p>
+                <div class="product-price">{{ product.price }}</div>
+                
+                <div class="product-features">
+                    <h3>CARACTERÍSTICAS:</h3>
+                    <ul>
+                        {% for feature in product.features %}
+                        <li>{{ feature }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="product-actions">
+                    <button class="buy-btn">COMPRAR AHORA</button>
+                    <button class="cart-btn">AGREGAR AL CARRITO</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="back-to-products">
+            <a href="/#productos" class="back-btn">← VOLVER A PRODUCTOS</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
